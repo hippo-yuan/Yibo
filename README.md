@@ -1,5 +1,6 @@
-基础样式库  
-===    
+Yibo 
+===      
+Yibo 是基于Mobile First 的策略而设计并使用 Less 开发的 CSS Framework样式参考自IOS，兼容到 iOS 6.0+ 和 Android 4.0+，非常适合开发跨平台Web App。CSS Framework已经在[PhantomUI](https://github.com/T-phantom/PhantomUI)中被使用。
 [展示DEMO](http://t-phantom.github.io/PhantomUI/ui/)  
 
 ## 一丶基本样式  
