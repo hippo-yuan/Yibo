@@ -1,0 +1,84 @@
+/*
+  align-items justify-content align-content 加入待考虑
+*/
+@flex-num: 12;
+.flex, .flex-column, .flex-row {
+  display: flex;
+  flex-wrap: wrap;
+}
+.flex-column {
+  flex-direction: column;
+}
+.flex-row {
+  flex-direction: row;
+}
+.flex-around {
+  justify-content: space-around;
+}
+.flex-between {
+  justify-content: space-between;
+}
+.flex-baseline {
+  align-items: baseline;
+}
+.flex-stretch {
+  align-items: stretch;
+}
+.flex-item {
+  flex-grow: 1;
+}
+// 递归生成栅格
+.build-item(@i) when (@i > 0) {
+  .build-item((@i - 1));
+
+  // 栅格
+  .flex-item-@{i} {
+    width: percentage(@i / @flex-num);
+  }
+
+  // 向左偏移
+  .flex-offset-@{i} {
+    margin-left: percentage(@i / @flex-num);
+  }
+
+  // 排序
+  .flex-order-@{i} {
+    order: @i;
+  }
+}
+
+.build-item(@flex-num);
+
+@media (max-width: 768px) {
+  .flex-sm {
+    flex-direction: column;
+    [class*=flex-item] {
+      width: 100%;
+    }
+  }
+  .flex-sm-hide {
+    display: none !important;
+  }
+}
+@media (max-width: 922px) {
+  .flex-md {
+    flex-direction: column;
+    [class*=flex-item] {
+      width: 100%;
+    }
+  }
+  .flex-md-hide {
+    display: none !important;
+  }
+}
+@media (max-width: 1200px) {
+  .flex-lg {
+    flex-direction: column;
+    [class*=flex-item] {
+      width: 100%;
+    }
+  }
+  .flex-lg-hide {
+    display: none !important;
+  }
+}
